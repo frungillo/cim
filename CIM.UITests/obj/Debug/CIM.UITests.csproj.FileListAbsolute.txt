@@ -1,0 +1,9 @@
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\bin\Debug\CIM.UITests.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\bin\Debug\CIM.UITests.pdb
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\bin\Debug\nunit.framework.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\bin\Debug\Xamarin.UITest.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\bin\Debug\nunit.framework.xml
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\bin\Debug\Xamarin.UITest.xml
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\obj\Debug\CIM.UITests.csprojResolveAssemblyReference.cache
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\obj\Debug\CIM.UITests.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM.UITests\obj\Debug\CIM.UITests.pdb

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:src="@drawable/ict_logo"
+        android:layout_width="match_parent"
+        android:layout_height="36.9dp"
+        android:id="@+id/imgLogo"
+        android:scaleType="fitCenter"
+        android:layout_alignParentTop="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblInfoUser"
+            android:text="infoUt"
+            android:gravity="center"
+            android:layout_below="@drawable/ict_logo"
+            android:layout_weight="0.7"
+            android:padding="2dp"
+            android:background="#fffff1f1" />
+        <TextView
+            android:text="infoOp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblInfoOperatore"
+            android:layout_weight="0.3"
+            android:padding="2dp"
+            android:background="#fffffed9" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnCommesseAperte"
+            android:text="Commesse Aperte"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_weight=".70" />
+        <Button
+            android:id="@+id/btnCommesseSospese"
+            android:text="Commesse Sospese"
+            android:layout_width="0dp"
+            android:layout_height="40sp"
+            android:layout_weight=".70" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="50px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <ListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lstCommesse"
+            android:background="#fffffafa"
+            android:fastScrollEnabled="true"
+            android:headerDividersEnabled="true"
+            android:footerDividersEnabled="true"
+            android:divider="#ffff0000" />
+    </LinearLayout>
+</LinearLayout>

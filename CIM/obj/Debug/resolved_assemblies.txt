@@ -1,0 +1,13 @@
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\CIM.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Mono.Android.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\mscorlib.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Newtonsoft.Json.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.Core.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.Runtime.Serialization.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.ServiceModel.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.Web.Services.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.Xml.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.Android.Support.v4.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.GooglePlayServices.Base.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.GooglePlayServices.Gcm.dll

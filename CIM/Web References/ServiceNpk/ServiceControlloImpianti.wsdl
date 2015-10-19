@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://srv.anm.it/npk" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://srv.anm.it/npk" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://srv.anm.it/npk">
+      <s:element name="ControlloCredenziali">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imei" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ControlloCredenzialiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ControlloCredenzialiResult" type="tns:Utente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Utente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Matricola" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cognome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumTel" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOperatore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="coddip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperatoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOperatoreResult" type="tns:Operatore" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Operatore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Coddip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadra" type="tns:Squadre" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttivitaSvolte" type="tns:ArrayOfAttivita" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Squadre">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operatori" type="tns:ArrayOfOperatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOperatore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Operatore" nillable="true" type="tns:Operatore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttivita">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Attivita" nillable="true" type="tns:Attivita" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Attivita">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndiceProduzione" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OreEsecuzione" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataEsecuzione" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Completata" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCommessa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCommessa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommessaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommessaResult" type="tns:Commesse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Commesse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Impianto" type="tns:Impianti" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="tns:TipoCommessa" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataCreazione" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataLimite" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataChiusura" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Richiedente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadre" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stato" type="tns:StatoCommessa" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lavori" type="tns:ArrayOfAttivita" />
+          <s:element minOccurs="0" maxOccurs="1" name="UteteUltimaModifica" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataUltimeModifica" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TerminaleUltimaModifica" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Impianti">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localizzazione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitudine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Longitudine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoCommessa">
+        <s:restriction base="s:string">
+          <s:enumeration value="Programmata" />
+          <s:enumeration value="Urgente" />
+          <s:enumeration value="Sopralluogo" />
+          <s:enumeration value="RichiestaIntervento" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfSquadre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Squadre" nillable="true" type="tns:Squadre" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="StatoCommessa">
+        <s:restriction base="s:string">
+          <s:enumeration value="Aperta" />
+          <s:enumeration value="Chiusa" />
+          <s:enumeration value="AttesaRiscontro" />
+          <s:enumeration value="Lavorazione" />
+          <s:enumeration value="Sospesa" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCommesseBySquadra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sq" type="tns:Squadre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommesseBySquadraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommesseBySquadraResult" type="tns:ArrayOfCommesse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCommesse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Commesse" nillable="true" type="tns:Commesse" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterDeviceID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="coddip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDeviceIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterDeviceIDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetoperatoriBySquadra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="squadra" type="tns:Squadre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetoperatoriBySquadraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetoperatoriBySquadraResult" type="tns:ArrayOfOperatore" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttivitaByIdLavoro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idLavoro" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttivitaByIdLavoroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttivitaByIdLavoroResult" type="tns:ArrayOfAttivita" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvaStatoAttivitaCommessa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="commessa" type="tns:Commesse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvaStatoAttivitaCommessaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SalvaStatoAttivitaCommessaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAndroidNotificationByList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="utenti" type="tns:ArrayOfOperatore" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="titolo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAndroidNotificationByListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendAndroidNotificationByListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAndroidNotificationByCommessa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="commessa" type="tns:Commesse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAndroidNotificationByCommessaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendAndroidNotificationByCommessaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAndroidNotificationByString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Matricola" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="titolo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="commessa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendAndroidNotificationByStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendAndroidNotificationByStringResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Utente" nillable="true" type="tns:Utente" />
+      <s:element name="Operatore" nillable="true" type="tns:Operatore" />
+      <s:element name="Commesse" nillable="true" type="tns:Commesse" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfAttivita" nillable="true" type="tns:ArrayOfAttivita" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ControlloCredenzialiSoapIn">
+    <wsdl:part name="parameters" element="tns:ControlloCredenziali" />
+  </wsdl:message>
+  <wsdl:message name="ControlloCredenzialiSoapOut">
+    <wsdl:part name="parameters" element="tns:ControlloCredenzialiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoreSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperatore" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoreSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperatoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommessaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommessa" />
+  </wsdl:message>
+  <wsdl:message name="GetCommessaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommessaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommesseBySquadraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommesseBySquadra" />
+  </wsdl:message>
+  <wsdl:message name="GetCommesseBySquadraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommesseBySquadraResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceIDSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterDeviceID" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceIDSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterDeviceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetoperatoriBySquadraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetoperatoriBySquadra" />
+  </wsdl:message>
+  <wsdl:message name="GetoperatoriBySquadraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetoperatoriBySquadraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByIdLavoroSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttivitaByIdLavoro" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByIdLavoroSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttivitaByIdLavoroResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvaStatoAttivitaCommessaSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvaStatoAttivitaCommessa" />
+  </wsdl:message>
+  <wsdl:message name="SalvaStatoAttivitaCommessaSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvaStatoAttivitaCommessaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByListSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAndroidNotificationByList" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByListSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAndroidNotificationByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByCommessaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAndroidNotificationByCommessa" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByCommessaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAndroidNotificationByCommessaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByStringSoapIn">
+    <wsdl:part name="parameters" element="tns:SendAndroidNotificationByString" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByStringSoapOut">
+    <wsdl:part name="parameters" element="tns:SendAndroidNotificationByStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ControlloCredenzialiHttpGetIn">
+    <wsdl:part name="imei" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ControlloCredenzialiHttpGetOut">
+    <wsdl:part name="Body" element="tns:Utente" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoreHttpGetIn">
+    <wsdl:part name="coddip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoreHttpGetOut">
+    <wsdl:part name="Body" element="tns:Operatore" />
+  </wsdl:message>
+  <wsdl:message name="GetCommessaHttpGetIn">
+    <wsdl:part name="idCommessa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommessaHttpGetOut">
+    <wsdl:part name="Body" element="tns:Commesse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceIDHttpGetIn">
+    <wsdl:part name="deviceId" type="s:string" />
+    <wsdl:part name="coddip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByIdLavoroHttpGetIn">
+    <wsdl:part name="idLavoro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByIdLavoroHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByStringHttpGetIn">
+    <wsdl:part name="Matricola" type="s:string" />
+    <wsdl:part name="msg" type="s:string" />
+    <wsdl:part name="titolo" type="s:string" />
+    <wsdl:part name="tipo" type="s:string" />
+    <wsdl:part name="commessa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ControlloCredenzialiHttpPostIn">
+    <wsdl:part name="imei" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ControlloCredenzialiHttpPostOut">
+    <wsdl:part name="Body" element="tns:Utente" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoreHttpPostIn">
+    <wsdl:part name="coddip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoreHttpPostOut">
+    <wsdl:part name="Body" element="tns:Operatore" />
+  </wsdl:message>
+  <wsdl:message name="GetCommessaHttpPostIn">
+    <wsdl:part name="idCommessa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCommessaHttpPostOut">
+    <wsdl:part name="Body" element="tns:Commesse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceIDHttpPostIn">
+    <wsdl:part name="deviceId" type="s:string" />
+    <wsdl:part name="coddip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByIdLavoroHttpPostIn">
+    <wsdl:part name="idLavoro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByIdLavoroHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByStringHttpPostIn">
+    <wsdl:part name="Matricola" type="s:string" />
+    <wsdl:part name="msg" type="s:string" />
+    <wsdl:part name="titolo" type="s:string" />
+    <wsdl:part name="tipo" type="s:string" />
+    <wsdl:part name="commessa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendAndroidNotificationByStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceControlloImpiantiSoap">
+    <wsdl:operation name="ControlloCredenziali">
+      <wsdl:input message="tns:ControlloCredenzialiSoapIn" />
+      <wsdl:output message="tns:ControlloCredenzialiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <wsdl:input message="tns:GetOperatoreSoapIn" />
+      <wsdl:output message="tns:GetOperatoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <wsdl:input message="tns:GetCommessaSoapIn" />
+      <wsdl:output message="tns:GetCommessaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommesseBySquadra">
+      <wsdl:input message="tns:GetCommesseBySquadraSoapIn" />
+      <wsdl:output message="tns:GetCommesseBySquadraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <wsdl:input message="tns:RegisterDeviceIDSoapIn" />
+      <wsdl:output message="tns:RegisterDeviceIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetoperatoriBySquadra">
+      <wsdl:input message="tns:GetoperatoriBySquadraSoapIn" />
+      <wsdl:output message="tns:GetoperatoriBySquadraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <wsdl:input message="tns:GetAttivitaByIdLavoroSoapIn" />
+      <wsdl:output message="tns:GetAttivitaByIdLavoroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvaStatoAttivitaCommessa">
+      <wsdl:input message="tns:SalvaStatoAttivitaCommessaSoapIn" />
+      <wsdl:output message="tns:SalvaStatoAttivitaCommessaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByList">
+      <wsdl:input message="tns:SendAndroidNotificationByListSoapIn" />
+      <wsdl:output message="tns:SendAndroidNotificationByListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByCommessa">
+      <wsdl:input message="tns:SendAndroidNotificationByCommessaSoapIn" />
+      <wsdl:output message="tns:SendAndroidNotificationByCommessaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <wsdl:input message="tns:SendAndroidNotificationByStringSoapIn" />
+      <wsdl:output message="tns:SendAndroidNotificationByStringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceControlloImpiantiHttpGet">
+    <wsdl:operation name="ControlloCredenziali">
+      <wsdl:input message="tns:ControlloCredenzialiHttpGetIn" />
+      <wsdl:output message="tns:ControlloCredenzialiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <wsdl:input message="tns:GetOperatoreHttpGetIn" />
+      <wsdl:output message="tns:GetOperatoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <wsdl:input message="tns:GetCommessaHttpGetIn" />
+      <wsdl:output message="tns:GetCommessaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <wsdl:input message="tns:RegisterDeviceIDHttpGetIn" />
+      <wsdl:output message="tns:RegisterDeviceIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <wsdl:input message="tns:GetAttivitaByIdLavoroHttpGetIn" />
+      <wsdl:output message="tns:GetAttivitaByIdLavoroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <wsdl:input message="tns:SendAndroidNotificationByStringHttpGetIn" />
+      <wsdl:output message="tns:SendAndroidNotificationByStringHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceControlloImpiantiHttpPost">
+    <wsdl:operation name="ControlloCredenziali">
+      <wsdl:input message="tns:ControlloCredenzialiHttpPostIn" />
+      <wsdl:output message="tns:ControlloCredenzialiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <wsdl:input message="tns:GetOperatoreHttpPostIn" />
+      <wsdl:output message="tns:GetOperatoreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <wsdl:input message="tns:GetCommessaHttpPostIn" />
+      <wsdl:output message="tns:GetCommessaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <wsdl:input message="tns:RegisterDeviceIDHttpPostIn" />
+      <wsdl:output message="tns:RegisterDeviceIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <wsdl:input message="tns:GetAttivitaByIdLavoroHttpPostIn" />
+      <wsdl:output message="tns:GetAttivitaByIdLavoroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <wsdl:input message="tns:SendAndroidNotificationByStringHttpPostIn" />
+      <wsdl:output message="tns:SendAndroidNotificationByStringHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceControlloImpiantiSoap" type="tns:ServiceControlloImpiantiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ControlloCredenziali">
+      <soap:operation soapAction="http://srv.anm.it/npk/ControlloCredenziali" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetOperatore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetCommessa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommesseBySquadra">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetCommesseBySquadra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <soap:operation soapAction="http://srv.anm.it/npk/RegisterDeviceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetoperatoriBySquadra">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetoperatoriBySquadra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetAttivitaByIdLavoro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvaStatoAttivitaCommessa">
+      <soap:operation soapAction="http://srv.anm.it/npk/SalvaStatoAttivitaCommessa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByList">
+      <soap:operation soapAction="http://srv.anm.it/npk/SendAndroidNotificationByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByCommessa">
+      <soap:operation soapAction="http://srv.anm.it/npk/SendAndroidNotificationByCommessa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <soap:operation soapAction="http://srv.anm.it/npk/SendAndroidNotificationByString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceControlloImpiantiSoap12" type="tns:ServiceControlloImpiantiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ControlloCredenziali">
+      <soap12:operation soapAction="http://srv.anm.it/npk/ControlloCredenziali" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetOperatore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetCommessa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommesseBySquadra">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetCommesseBySquadra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <soap12:operation soapAction="http://srv.anm.it/npk/RegisterDeviceID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetoperatoriBySquadra">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetoperatoriBySquadra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetAttivitaByIdLavoro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvaStatoAttivitaCommessa">
+      <soap12:operation soapAction="http://srv.anm.it/npk/SalvaStatoAttivitaCommessa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByList">
+      <soap12:operation soapAction="http://srv.anm.it/npk/SendAndroidNotificationByList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByCommessa">
+      <soap12:operation soapAction="http://srv.anm.it/npk/SendAndroidNotificationByCommessa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <soap12:operation soapAction="http://srv.anm.it/npk/SendAndroidNotificationByString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceControlloImpiantiHttpGet" type="tns:ServiceControlloImpiantiHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ControlloCredenziali">
+      <http:operation location="/ControlloCredenziali" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <http:operation location="/GetOperatore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <http:operation location="/GetCommessa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <http:operation location="/RegisterDeviceID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <http:operation location="/GetAttivitaByIdLavoro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <http:operation location="/SendAndroidNotificationByString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceControlloImpiantiHttpPost" type="tns:ServiceControlloImpiantiHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ControlloCredenziali">
+      <http:operation location="/ControlloCredenziali" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatore">
+      <http:operation location="/GetOperatore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommessa">
+      <http:operation location="/GetCommessa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDeviceID">
+      <http:operation location="/RegisterDeviceID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByIdLavoro">
+      <http:operation location="/GetAttivitaByIdLavoro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAndroidNotificationByString">
+      <http:operation location="/SendAndroidNotificationByString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceControlloImpianti">
+    <wsdl:port name="ServiceControlloImpiantiSoap" binding="tns:ServiceControlloImpiantiSoap">
+      <soap:address location="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceControlloImpiantiSoap12" binding="tns:ServiceControlloImpiantiSoap12">
+      <soap12:address location="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceControlloImpiantiHttpGet" binding="tns:ServiceControlloImpiantiHttpGet">
+      <http:address location="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceControlloImpiantiHttpPost" binding="tns:ServiceControlloImpiantiHttpPost">
+      <http:address location="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

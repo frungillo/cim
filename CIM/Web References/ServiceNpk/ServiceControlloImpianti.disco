@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://srv.anm.it/npk/ServiceControlloImpianti.asmx?wsdl" docRef="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" xmlns:q1="http://srv.anm.it/npk" binding="q1:ServiceControlloImpiantiSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://srv.anm.it/npk/ServiceControlloImpianti.asmx" xmlns:q2="http://srv.anm.it/npk" binding="q2:ServiceControlloImpiantiSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

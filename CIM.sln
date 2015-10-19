@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIM", "CIM\CIM.csproj", "{453AC3A7-EF16-4501-B7AA-5DC9E8C0A410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIM.UITests", "CIM.UITests\CIM.UITests.csproj", "{56C54798-28C0-4E32-B1BF-BA0914FE4777}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{453AC3A7-EF16-4501-B7AA-5DC9E8C0A410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453AC3A7-EF16-4501-B7AA-5DC9E8C0A410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453AC3A7-EF16-4501-B7AA-5DC9E8C0A410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453AC3A7-EF16-4501-B7AA-5DC9E8C0A410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56C54798-28C0-4E32-B1BF-BA0914FE4777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56C54798-28C0-4E32-B1BF-BA0914FE4777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56C54798-28C0-4E32-B1BF-BA0914FE4777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56C54798-28C0-4E32-B1BF-BA0914FE4777}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

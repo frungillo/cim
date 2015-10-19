@@ -1,0 +1,23 @@
+﻿<Properties StartupItem="CIM\CIM.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.MonoForAndroid_API_12" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CIM\frmDettagliCommesse.cs">
+    <Files>
+      <File FileName="CIM\MainActivity.cs" Line="131" Column="67" />
+      <File FileName="CIM\frmDettagliCommesse.cs" Line="39" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\frungillo\Documents\Projects\CIM\CIM\MyGcmTaskService.cs" line="25" column="1" />
+      <Breakpoint file="C:\Users\frungillo\Documents\Projects\CIM\CIM\MyGcmTaskService.cs" line="30" column="39" />
+      <Breakpoint file="C:\Users\frungillo\Documents\Projects\CIM\CIM\MyGcmTaskService.cs" line="37" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CIM AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.DeviceDefault.Light.NoActionBar" />
+</Properties>

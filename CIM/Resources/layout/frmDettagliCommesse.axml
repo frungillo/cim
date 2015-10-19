@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:src="@drawable/ict_logo"
+        android:layout_width="match_parent"
+        android:layout_height="36.9dp"
+        android:id="@+id/imgLogo"
+        android:scaleType="fitCenter"
+        android:layout_alignParentTop="true" />
+    <TextView
+        android:text="Gestione Commessa"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textColor="#ffff0303"
+        android:background="#fffbf9af" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIdDescrizione"
+        android:paddingLeft="5dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtDataCommessa"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:background="@drawable/textboxnera" />
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtDataLimite"
+            android:paddingRight="5dp"
+            android:background="@drawable/textboxverde"
+            android:paddingLeft="5dp" />
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtDataChiusura"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/txtImpianto"
+            android:background="#fffbe0ea"
+            android:layout_gravity="center"
+            android:paddingLeft="5dp"
+            android:gravity="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3">
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtRichiedente"
+            android:paddingLeft="5dp" />
+        <TextView
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtSquadreInteressate"
+            android:paddingLeft="15dp" />
+    </LinearLayout>
+    <TextView
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtStatoCommessa"
+        android:gravity="center"
+        android:background="#fffbe0ea"
+        android:textStyle="bold" />
+    <TextView
+        android:text="Lavori:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:paddingLeft="5dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/lstAttivita"
+        android:layout_weight="0.9" />
+    <Button
+        android:text="Salva Commessa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/btnSalvaCommessa"
+        android:layout_weight="0.1" />
+</LinearLayout>
