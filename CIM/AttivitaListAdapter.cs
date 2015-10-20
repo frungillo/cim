@@ -53,6 +53,13 @@ namespace CIM
 			}
 
 			holder.chkStatoAttivita.Checked = attivita [position].Completata;
+			if (holder.chkStatoAttivita.Checked) {
+				holder.chkStatoAttivita.Enabled = false;
+				holder.txtDescrizione.SetBackgroundResource (Resource.Drawable.TextBoxVerde);
+			} else {
+				holder.chkStatoAttivita.Enabled = true;
+				holder.txtDescrizione.SetBackgroundResource (Resource.Drawable.TextBoxRossa);
+			}
 			holder.chkStatoAttivita.Tag = new MyWrapper<int> (position);
 			holder.txtDescrizione.Text = attivita [position].Descrizione;
 

@@ -37,32 +37,43 @@ namespace CIM
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-
 			SetContentView (Resource.Layout.Main);
-
-			prepareWaitDialog ("Connessione al server ANM...", false);
-
-			/*Componenti del form*/
-			lblInfoUser = FindViewById<TextView> (Resource.Id.lblInfoUser);
-			lblInfoOp = FindViewById<TextView> (Resource.Id.lblInfoOperatore);
-			lstCommesse = FindViewById<ListView> (Resource.Id.lstCommesse);
-
-			/*********************/
-
 			TelephonyManager tl = (TelephonyManager)GetSystemService (TelephonyService);
-			 Imei = tl.DeviceId;
-			dialog.Show ();
-			lblInfoUser.Text = "Recupero informazioni di accesso in corso...";
-			s.BeginControlloCredenziali (Imei, ControlloCredenzialiCallBack, null);
+
+			Android.Net.ConnectivityManager ntw = (Android.Net.ConnectivityManager)GetSystemService (ConnectivityService);
+			/*Controllo se esistono connessioni di rete dati attive.*/
+			if (!ntw.IsActiveNetworkMetered) {
+				MsgBox ("Il programma richiede una connessione dati per funzionare \n controllare la connessione e riprovare.")
+					.Show ();
+			} else {
+				/* Qui ci arrivo solo se esistono connesisoni di rete attive*/
 
 
 
-			t1 = new Timer (10000);
-			t1.Interval = 10000;
-			t1.Enabled = false;
-			t1.Elapsed+= T1_Elapsed;
+				prepareWaitDialog ("Connessione al server ANM...", false);
 
-		}
+				/*Componenti del form*/
+				lblInfoUser = FindViewById<TextView> (Resource.Id.lblInfoUser);
+				lblInfoOp = FindViewById<TextView> (Resource.Id.lblInfoOperatore);
+				lstCommesse = FindViewById<ListView> (Resource.Id.lstCommesse);
+
+				/*********************/
+
+
+				Imei = tl.DeviceId;
+				dialog.Show ();
+				lblInfoUser.Text = "Recupero informazioni di accesso in corso...";
+				s.BeginControlloCredenziali (Imei, ControlloCredenzialiCallBack, null);
+
+
+
+				t1 = new Timer (10000);
+				t1.Interval = 10000;
+				t1.Enabled = true;
+				t1.Elapsed += T1_Elapsed;
+			}
+
+		} /*End OnCreate*/
 
 		void T1_Elapsed (object sender, ElapsedEventArgs e)
 		{
@@ -105,11 +116,32 @@ namespace CIM
 				Commesse commessa = s.GetCommessa (int.Parse (numcommessa));
 				Intent frmCommesse = new Intent (this, typeof(frmDettagliCommesse));
 				frmCommesse.PutExtra ("commessa", JsonConvert.SerializeObject (commessa));
-				StartActivity (frmCommesse);
+
+				StartActivityForResult (frmCommesse,0);
+				
 			}
 
 
 		}
+
+		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
+		{
+			if (resultCode == Result.Ok) {
+				prepareWaitDialog ("Carico commesse per la squadra...", false);
+				dialog.Show ();
+
+				s.BeginGetCommesseBySquadra (op.Squadra, (ar) => {
+					Commesse[] ls = s.EndGetCommesseBySquadra(ar);
+					RunOnUiThread(()=> {
+						CaricaLista(ls);
+						dialog.Dismiss();
+					});
+				}, null);
+			}
+		}
+
+
+
 
 		/*Routine di caricamento lista*/
 		private void CaricaLista(Commesse[] commesse) {
@@ -127,7 +159,7 @@ namespace CIM
 			Intent frmCommesse = new Intent (this, typeof(frmDettagliCommesse));
 
 			frmCommesse.PutExtra ("commessa", JsonConvert.SerializeObject(commessaSelezionata) );
-			StartActivity (frmCommesse);
+			StartActivityForResult (frmCommesse,0);
 		}
 		/**********************************************************************/
 

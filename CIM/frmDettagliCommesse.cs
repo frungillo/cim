@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace CIM
 {
-	[Activity (Label = "frmDettagliCommesse", Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar")]			
+	[Activity (Label = "frmDettagliCommesse", Theme = "@android:style/Theme.DeviceDefault.Light.NoActionBar", NoHistory = true)]			
 	public class frmDettagliCommesse : Activity
 	{
 		Commesse commessa;
@@ -37,6 +37,9 @@ namespace CIM
 			txtStatoCommessa= FindViewById<TextView> (Resource.Id.txtStatoCommessa);
 			lstAttivita = FindViewById<ListView> (Resource.Id.lstAttivita);
 			btnSalvaStato = FindViewById<Button> (Resource.Id.btnSalvaCommessa);
+
+
+
 
 			btnSalvaStato.Click+= BtnSalvaStato_Click;
 
@@ -82,6 +85,8 @@ namespace CIM
 	
 		}
 
+
+
 		void BtnSalvaStato_Click (object sender, EventArgs e)
 		{
 			ServiceControlloImpianti s = new ServiceControlloImpianti ();
@@ -89,14 +94,20 @@ namespace CIM
 				bool esito = s.EndSalvaStatoAttivitaCommessa(ar);
 				if(esito) {
 					RunOnUiThread(()=>{	Toast.MakeText(this, "Stato salvato correttamente...", ToastLength.Long).Show();});
+					SetResult(Result.Ok);
+					this.Finish();
 				} else {
 					RunOnUiThread(()=>{	Toast.MakeText(this, "ERRORE SALVATAGGIO STATO", ToastLength.Long).Show();});
 				}
 			}, null);
 		}
 
-	
-
+		public override void OnBackPressed ()
+		{
+			SetResult (Result.Canceled);
+			Finish ();
+			base.OnBackPressed ();
+		}
 
 	}
 }
