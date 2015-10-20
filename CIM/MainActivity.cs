@@ -13,6 +13,8 @@ using Android.Util;
 using Android.Gms.Common;
 using Newtonsoft.Json;
 
+using System.IO;
+
 namespace CIM
 {
 	[Activity (Label = "CIM", 
@@ -119,6 +121,27 @@ namespace CIM
 
 				StartActivityForResult (frmCommesse,0);
 				
+			} else if (this.Intent.HasExtra("messaggio")) {
+				Messaggio mess = JsonConvert.DeserializeObject<Messaggio>(this.Intent.GetStringExtra("messaggio"));
+
+				MsgBox (mess.TestoMessaggio, mess.Mittente, "Letto", null, () => {
+					if (!Directory.Exists(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath+"/CIM/log/")) {
+						Directory.CreateDirectory(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath+"/CIM/log/" );
+
+					}
+					StreamWriter w = new StreamWriter(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath+"/CIM/log/Messaggi.txt" ,true);
+					w.WriteLine("["+DateTime.Now.ToShortDateString()+" " +
+						DateTime.Now.ToShortTimeString()+ "] Messaggio da "+mess.Mittente+": " + mess.TestoMessaggio);
+					w.Flush();
+					w.Close();
+
+				}).Show();
+
+				/*
+				Intent frmMessaggio = new Intent (this, typeof(frmLeggiMessaggi));
+				frmMessaggio.PutExtra ("messaggio", JsonConvert.SerializeObject(mess));
+				StartActivity (frmMessaggio);
+				*/
 			}
 
 

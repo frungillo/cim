@@ -28,7 +28,7 @@
         <action android:name="com.google.android.c2dm.intent.RECEIVE" />
       </intent-filter>
     </service>
-    <activity android:label="frmLeggiMessaggi" android:name="md58f4e7145a90b6f7e3185fcb0d9ddbb60.frmLeggiMessaggi" />
+    <activity android:label="frmLeggiMessaggi" android:noHistory="true" android:theme="@android:style/Theme.Holo.Light.Dialog.MinWidth" android:name="md58f4e7145a90b6f7e3185fcb0d9ddbb60.frmLeggiMessaggi" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="it.anm.cim.mono.MonoRuntimeProvider.__mono_init__" />
     <receiver android:name="mono.android.Seppuku">
       <intent-filter>
@@ -44,6 +44,7 @@
   <uses-permission android:name="it.anm.cim.permission.C2D_MESSAGE" />
   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <permission android:name="it.anm.cim.permission.C2D_MESSAGE" android:protectionLevel="signature" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <permission android:name="it.anm.cim.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 </manifest>

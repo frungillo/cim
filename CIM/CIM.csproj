@@ -72,6 +72,7 @@
     <Compile Include="GcmListenerService.cs" />
     <Compile Include="AttivitaListAdapter.cs" />
     <Compile Include="frmLeggiMessaggi.cs" />
+    <Compile Include="Classi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

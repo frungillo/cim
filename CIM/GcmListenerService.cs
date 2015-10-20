@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Gms.Gcm;
 using Android.Util;
 using Android.Media;
+using Newtonsoft.Json;
 
 namespace CIM
 {
@@ -25,9 +26,9 @@ namespace CIM
 		void SendNotification (MessaggioNotifica m)
 		{
 			var intent = new Intent (this, typeof(MainActivity));
-			intent.PutExtra ("commessanum", m.Commessa);
+
 			intent.AddFlags (ActivityFlags.ClearTop);
-			var pendingIntent = PendingIntent.GetActivity (this, 0, intent, PendingIntentFlags.OneShot);
+
 
 			var notifica = new Notification.Builder (this);
 			switch (m.Tipo) {
@@ -44,6 +45,16 @@ namespace CIM
 				notifica.SetSmallIcon (Resource.Drawable.InvioDoc);
 				break;
 			}
+
+
+			if (m.Tipo == "4") {
+				Messaggio mess = new Messaggio (m.Titolo, m.Messaggio);
+				intent.PutExtra ("messaggio", JsonConvert.SerializeObject(mess));
+			} else {
+				intent.PutExtra ("commessanum", m.Commessa);	
+			}
+			var pendingIntent = PendingIntent.GetActivity (this, 0, intent, PendingIntentFlags.OneShot);
+
 			notifica.SetContentTitle (m.Titolo);
 			notifica.SetContentText (m.Messaggio);
 			notifica.SetAutoCancel (true);
