@@ -106,18 +106,18 @@ containing a value of this type.
     public static final class id {
         public static final int adjust_height=0x7f070000;
         public static final int adjust_width=0x7f070001;
-        public static final int btnCommesseAperte=0x7f070017;
-        public static final int btnCommesseSospese=0x7f070018;
+        public static final int btnCommesseAperte=0x7f070019;
+        public static final int btnCommesseSospese=0x7f07001a;
         public static final int btnSalvaCommessa=0x7f070014;
         public static final int chkCheckBoxChk=0x7f070004;
         public static final int imgLogo=0x7f070005;
-        public static final int lblInfoOperatore=0x7f070016;
-        public static final int lblInfoUser=0x7f070015;
+        public static final int lblInfoOperatore=0x7f070018;
+        public static final int lblInfoUser=0x7f070017;
         public static final int linearLayout1=0x7f070008;
         public static final int linearLayout2=0x7f07000c;
         public static final int linearLayout3=0x7f07000e;
         public static final int lstAttivita=0x7f070013;
-        public static final int lstCommesse=0x7f070019;
+        public static final int lstCommesse=0x7f07001b;
         public static final int none=0x7f070002;
         public static final int textView1=0x7f070006;
         public static final int textView2=0x7f070012;
@@ -127,9 +127,11 @@ containing a value of this type.
         public static final int txtDescrizioneChk=0x7f070003;
         public static final int txtIdDescrizione=0x7f070007;
         public static final int txtImpianto=0x7f07000d;
+        public static final int txtMittenteMessaggio=0x7f070015;
         public static final int txtRichiedente=0x7f07000f;
         public static final int txtSquadreInteressate=0x7f070010;
         public static final int txtStatoCommessa=0x7f070011;
+        public static final int txtTestoMessaggio=0x7f070016;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f060000;
@@ -137,7 +139,8 @@ containing a value of this type.
     public static final class layout {
         public static final int checkedlistitem=0x7f030000;
         public static final int frmdettaglicommesse=0x7f030001;
-        public static final int main=0x7f030002;
+        public static final int frmleggimessaggi=0x7f030002;
+        public static final int main=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f040023;

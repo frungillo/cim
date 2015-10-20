@@ -232,11 +232,11 @@ namespace CIM
 			// aapt resource value: 0x7f070001
 			public const int adjust_width = 2131165185;
 			
-			// aapt resource value: 0x7f070017
-			public const int btnCommesseAperte = 2131165207;
+			// aapt resource value: 0x7f070019
+			public const int btnCommesseAperte = 2131165209;
 			
-			// aapt resource value: 0x7f070018
-			public const int btnCommesseSospese = 2131165208;
+			// aapt resource value: 0x7f07001a
+			public const int btnCommesseSospese = 2131165210;
 			
 			// aapt resource value: 0x7f070014
 			public const int btnSalvaCommessa = 2131165204;
@@ -247,11 +247,11 @@ namespace CIM
 			// aapt resource value: 0x7f070005
 			public const int imgLogo = 2131165189;
 			
-			// aapt resource value: 0x7f070016
-			public const int lblInfoOperatore = 2131165206;
+			// aapt resource value: 0x7f070018
+			public const int lblInfoOperatore = 2131165208;
 			
-			// aapt resource value: 0x7f070015
-			public const int lblInfoUser = 2131165205;
+			// aapt resource value: 0x7f070017
+			public const int lblInfoUser = 2131165207;
 			
 			// aapt resource value: 0x7f070008
 			public const int linearLayout1 = 2131165192;
@@ -265,8 +265,8 @@ namespace CIM
 			// aapt resource value: 0x7f070013
 			public const int lstAttivita = 2131165203;
 			
-			// aapt resource value: 0x7f070019
-			public const int lstCommesse = 2131165209;
+			// aapt resource value: 0x7f07001b
+			public const int lstCommesse = 2131165211;
 			
 			// aapt resource value: 0x7f070002
 			public const int none = 2131165186;
@@ -295,6 +295,9 @@ namespace CIM
 			// aapt resource value: 0x7f07000d
 			public const int txtImpianto = 2131165197;
 			
+			// aapt resource value: 0x7f070015
+			public const int txtMittenteMessaggio = 2131165205;
+			
 			// aapt resource value: 0x7f07000f
 			public const int txtRichiedente = 2131165199;
 			
@@ -303,6 +306,9 @@ namespace CIM
 			
 			// aapt resource value: 0x7f070011
 			public const int txtStatoCommessa = 2131165201;
+			
+			// aapt resource value: 0x7f070016
+			public const int txtTestoMessaggio = 2131165206;
 			
 			static Id()
 			{
@@ -340,7 +346,10 @@ namespace CIM
 			public const int frmDettagliCommesse = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Main = 2130903042;
+			public const int frmLeggiMessaggi = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int Main = 2130903043;
 			
 			static Layout()
 			{

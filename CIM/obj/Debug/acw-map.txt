@@ -34,6 +34,10 @@ CIM.MyWrapper`1, CIM;md58f4e7145a90b6f7e3185fcb0d9ddbb60.MyWrapper_1
 CIM.MyWrapper`1, CIM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58f4e7145a90b6f7e3185fcb0d9ddbb60.MyWrapper_1
 CIM.MyWrapper`1;md58f4e7145a90b6f7e3185fcb0d9ddbb60.MyWrapper_1
 cim.MyWrapper_1;md58f4e7145a90b6f7e3185fcb0d9ddbb60.MyWrapper_1
+CIM.frmLeggiMessaggi, CIM;md58f4e7145a90b6f7e3185fcb0d9ddbb60.frmLeggiMessaggi
+CIM.frmLeggiMessaggi, CIM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58f4e7145a90b6f7e3185fcb0d9ddbb60.frmLeggiMessaggi
+CIM.frmLeggiMessaggi;md58f4e7145a90b6f7e3185fcb0d9ddbb60.frmLeggiMessaggi
+cim.frmLeggiMessaggi;md58f4e7145a90b6f7e3185fcb0d9ddbb60.frmLeggiMessaggi
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager.IOnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor

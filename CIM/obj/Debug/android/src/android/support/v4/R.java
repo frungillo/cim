@@ -99,38 +99,48 @@ containing a value of this type.
         public static int inviodoc=0x7f02001f;
         public static int kmixdocked_error=0x7f020020;
         public static int quote=0x7f020021;
+        public static int textboxnera=0x7f020022;
+        public static int textboxrossa=0x7f020023;
+        public static int textboxverde=0x7f020024;
     }
     public static final class id {
         public static int adjust_height=0x7f070000;
         public static int adjust_width=0x7f070001;
-        public static int btnCommesseAperte=0x7f070014;
-        public static int btnCommesseSospese=0x7f070015;
-        public static int imgLogo=0x7f070003;
-        public static int lblInfoOperatore=0x7f070013;
-        public static int lblInfoUser=0x7f070012;
-        public static int linearLayout1=0x7f070006;
-        public static int linearLayout2=0x7f07000a;
-        public static int linearLayout3=0x7f07000c;
-        public static int lstAttivita=0x7f070011;
-        public static int lstCommesse=0x7f070016;
+        public static int btnCommesseAperte=0x7f070019;
+        public static int btnCommesseSospese=0x7f07001a;
+        public static int btnSalvaCommessa=0x7f070014;
+        public static int chkCheckBoxChk=0x7f070004;
+        public static int imgLogo=0x7f070005;
+        public static int lblInfoOperatore=0x7f070018;
+        public static int lblInfoUser=0x7f070017;
+        public static int linearLayout1=0x7f070008;
+        public static int linearLayout2=0x7f07000c;
+        public static int linearLayout3=0x7f07000e;
+        public static int lstAttivita=0x7f070013;
+        public static int lstCommesse=0x7f07001b;
         public static int none=0x7f070002;
-        public static int textView1=0x7f070004;
-        public static int textView2=0x7f070010;
-        public static int txtDataChiusura=0x7f070009;
-        public static int txtDataCommessa=0x7f070007;
-        public static int txtDataLimite=0x7f070008;
-        public static int txtIdDescrizione=0x7f070005;
-        public static int txtImpianto=0x7f07000b;
-        public static int txtRichiedente=0x7f07000d;
-        public static int txtSquadreInteressate=0x7f07000e;
-        public static int txtStatoCommessa=0x7f07000f;
+        public static int textView1=0x7f070006;
+        public static int textView2=0x7f070012;
+        public static int txtDataChiusura=0x7f07000b;
+        public static int txtDataCommessa=0x7f070009;
+        public static int txtDataLimite=0x7f07000a;
+        public static int txtDescrizioneChk=0x7f070003;
+        public static int txtIdDescrizione=0x7f070007;
+        public static int txtImpianto=0x7f07000d;
+        public static int txtMittenteMessaggio=0x7f070015;
+        public static int txtRichiedente=0x7f07000f;
+        public static int txtSquadreInteressate=0x7f070010;
+        public static int txtStatoCommessa=0x7f070011;
+        public static int txtTestoMessaggio=0x7f070016;
     }
     public static final class integer {
         public static int google_play_services_version=0x7f060000;
     }
     public static final class layout {
-        public static int frmdettaglicommesse=0x7f030000;
-        public static int main=0x7f030001;
+        public static int checkedlistitem=0x7f030000;
+        public static int frmdettaglicommesse=0x7f030001;
+        public static int frmleggimessaggi=0x7f030002;
+        public static int main=0x7f030003;
     }
     public static final class string {
         public static int app_name=0x7f040023;
