@@ -14,6 +14,7 @@ using Android.Gms.Common;
 using Newtonsoft.Json;
 
 using System.IO;
+using Android.Net;
 
 namespace CIM
 {
@@ -32,6 +33,7 @@ namespace CIM
 		ProgressDialog dialog;
 		Timer t1;
 		Operatore op;
+		int Tema = 0;
 		public Utente ut;
 
 		/*-----------------------*/
@@ -40,11 +42,15 @@ namespace CIM
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Main);
+
+
 			TelephonyManager tl = (TelephonyManager)GetSystemService (TelephonyService);
 
-			Android.Net.ConnectivityManager ntw = (Android.Net.ConnectivityManager)GetSystemService (ConnectivityService);
 			/*Controllo se esistono connessioni di rete dati attive.*/
-			if (!ntw.IsActiveNetworkMetered) {
+			Android.Net.ConnectivityManager ntw = (Android.Net.ConnectivityManager)GetSystemService (ConnectivityService);
+			NetworkInfo connessioneAttiva = ntw.ActiveNetworkInfo;
+			bool isOnline = (connessioneAttiva != null) && connessioneAttiva.IsConnected;
+			if (!isOnline) {
 				MsgBox ("Il programma richiede una connessione dati per funzionare \n controllare la connessione e riprovare.")
 					.Show ();
 			} else {
@@ -58,9 +64,13 @@ namespace CIM
 				lblInfoUser = FindViewById<TextView> (Resource.Id.lblInfoUser);
 				lblInfoOp = FindViewById<TextView> (Resource.Id.lblInfoOperatore);
 				lstCommesse = FindViewById<ListView> (Resource.Id.lstCommesse);
+				Button btnListaCommesse = FindViewById<Button> (Resource.Id.btnCommesseAperte);
+				Button btnCreaCommessa = FindViewById<Button> (Resource.Id.btnCreaCommesse);
+
 
 				/*********************/
 
+				btnListaCommesse.Click += BtnListaCommesse_Click;
 
 				Imei = tl.DeviceId;
 				dialog.Show ();
@@ -75,7 +85,12 @@ namespace CIM
 				t1.Elapsed += T1_Elapsed;
 			}
 
-		} /*End OnCreate*/
+		}
+
+		void BtnListaCommesse_Click (object sender, EventArgs e)
+		{
+			CaricaLista ();
+		} 
 
 		void T1_Elapsed (object sender, ElapsedEventArgs e)
 		{
@@ -101,16 +116,7 @@ namespace CIM
 				StartService (new Intent(this, typeof(MyGcmListenerService)));
 			}
 
-			prepareWaitDialog ("Carico commesse per la squadra...", false);
-			dialog.Show ();
-
-			s.BeginGetCommesseBySquadra (op.Squadra, (ar) => {
-				Commesse[] ls = s.EndGetCommesseBySquadra(ar);
-				RunOnUiThread(()=> {
-					CaricaLista(ls);
-					dialog.Dismiss();
-				});
-			}, null);
+			CaricaLista ();
 
 			/*Se provengo da una notifica devo aprire direttamente la pagina di dettaglio commesse.*/
 			if (this.Intent.HasExtra ("commessanum")) {
@@ -137,11 +143,7 @@ namespace CIM
 
 				}).Show();
 
-				/*
-				Intent frmMessaggio = new Intent (this, typeof(frmLeggiMessaggi));
-				frmMessaggio.PutExtra ("messaggio", JsonConvert.SerializeObject(mess));
-				StartActivity (frmMessaggio);
-				*/
+			
 			}
 
 
@@ -150,28 +152,55 @@ namespace CIM
 		protected override void OnActivityResult (int requestCode, Result resultCode, Intent data)
 		{
 			if (resultCode == Result.Ok) {
-				prepareWaitDialog ("Carico commesse per la squadra...", false);
-				dialog.Show ();
-
-				s.BeginGetCommesseBySquadra (op.Squadra, (ar) => {
-					Commesse[] ls = s.EndGetCommesseBySquadra(ar);
-					RunOnUiThread(()=> {
-						CaricaLista(ls);
-						dialog.Dismiss();
-					});
-				}, null);
+				CaricaLista ();
 			}
 		}
 
+	
+		private void ScriviOpzioni(string Opzione, string valore) {
+			if (!Directory.Exists(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath+"/CIM/opt/")) {
+				Directory.CreateDirectory(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath+"/CIM/opt/" );
 
+			}
+			StreamWriter w = new StreamWriter(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath+"/CIM/opt/options.dat" ,false);
+			w.WriteLine(Opzione+";"+valore);
+			w.Flush();
+			w.Close();
+		}
 
+		private string LeggiOpzione(string opzione) {
+			string ret = "";
+			try {
+				StreamReader r = new StreamReader (Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/CIM/opt/options.dat");	
+				while (!r.EndOfStream) {
+					string[] arr = r.ReadLine ().Split (new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+					if (arr [0] == opzione) {
+						ret=  arr [1];
+					}
+					r.Close();
+				}
+			} catch (Exception) {
+				
+			}
+
+			return ret;
+		}
 
 		/*Routine di caricamento lista*/
-		private void CaricaLista(Commesse[] commesse) {
-			CommesseListAdapter DatiLista = new CommesseListAdapter (this, commesse);
-			lstCommesse.Adapter = DatiLista;
-			lstCommesse.FastScrollEnabled = true;
-			lstCommesse.ItemClick += LstCommesse_ItemClick;
+		private void CaricaLista() {
+			prepareWaitDialog ("Carico commesse per la squadra...", false);
+			dialog.Show ();
+			s.BeginGetCommesseByOperatore (op, (ar) => {
+				Commesse[] ls = s.EndGetCommesseByOperatore(ar);
+				RunOnUiThread(()=> {
+					CommesseListAdapter DatiLista = new CommesseListAdapter (this, ls);
+					lstCommesse.Adapter = DatiLista;
+					lstCommesse.FastScrollEnabled = true;
+					lstCommesse.ItemClick += LstCommesse_ItemClick;
+					dialog.Dismiss();
+				});
+			}, null);
+
 		}
 
 		/*********************************************************************/
@@ -200,7 +229,7 @@ namespace CIM
 					try {
 						RunOnUiThread( ()=> {
 							op = s.EndGetOperatore(ar1);
-							lblInfoOp.Text = "Squadra:"+op.Squadra.Id;
+							lblInfoOp.Text = "Att:"+op.AttivitaSvolte.Length;
 							dialog.Dismiss();
 							suUtenteVerificato();
 						});

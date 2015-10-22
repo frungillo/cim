@@ -94,21 +94,21 @@ namespace CIM.ServiceNpk {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetCommesseBySquadra", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Commesse[] GetCommesseBySquadra(Squadre sq) {
-            object[] results = this.Invoke("GetCommesseBySquadra", new object[] {
-                        sq});
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetCommesseByOperatore", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Commesse[] GetCommesseByOperatore(Operatore op) {
+            object[] results = this.Invoke("GetCommesseByOperatore", new object[] {
+                        op});
             return ((Commesse[])(results[0]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginGetCommesseBySquadra(Squadre sq, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetCommesseBySquadra", new object[] {
-                        sq}, callback, asyncState);
+        public System.IAsyncResult BeginGetCommesseByOperatore(Operatore op, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetCommesseByOperatore", new object[] {
+                        op}, callback, asyncState);
         }
         
         /// <remarks/>
-        public Commesse[] EndGetCommesseBySquadra(System.IAsyncResult asyncResult) {
+        public Commesse[] EndGetCommesseByOperatore(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
             return ((Commesse[])(results[0]));
         }
@@ -295,6 +295,78 @@ namespace CIM.ServiceNpk {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
+    public partial class Squadre {
+        
+        /// <remarks/>
+        public int Id;
+        
+        /// <remarks/>
+        public string Descrizione;
+        
+        /// <remarks/>
+        public string Area;
+        
+        /// <remarks/>
+        public string Note;
+        
+        /// <remarks/>
+        public Operatore[] Operatori;
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
+    public partial class Operatore {
+        
+        /// <remarks/>
+        public string Coddip;
+        
+        /// <remarks/>
+        public string Note;
+        
+        /// <remarks/>
+        public Attivita[] AttivitaSvolte;
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
+    public partial class Attivita {
+        
+        /// <remarks/>
+        public int Id;
+        
+        /// <remarks/>
+        public string Descrizione;
+        
+        /// <remarks/>
+        public string Tipo;
+        
+        /// <remarks/>
+        public string IndiceProduzione;
+        
+        /// <remarks/>
+        public int OreEsecuzione;
+        
+        /// <remarks/>
+        public System.DateTime DataEsecuzione;
+        
+        /// <remarks/>
+        public bool Completata;
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
     public partial class Impianti {
         
         /// <remarks/>
@@ -346,7 +418,7 @@ namespace CIM.ServiceNpk {
         public string Descrizione;
         
         /// <remarks/>
-        public Squadre[] Squadre;
+        public Operatore[] Operatori;
         
         /// <remarks/>
         public StatoCommessa Stato;
@@ -381,81 +453,6 @@ namespace CIM.ServiceNpk {
         
         /// <remarks/>
         RichiestaIntervento,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
-    public partial class Squadre {
-        
-        /// <remarks/>
-        public int Id;
-        
-        /// <remarks/>
-        public string Descrizione;
-        
-        /// <remarks/>
-        public string Area;
-        
-        /// <remarks/>
-        public string Note;
-        
-        /// <remarks/>
-        public Operatore[] Operatori;
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
-    public partial class Operatore {
-        
-        /// <remarks/>
-        public string Coddip;
-        
-        /// <remarks/>
-        public Squadre Squadra;
-        
-        /// <remarks/>
-        public string Note;
-        
-        /// <remarks/>
-        public Attivita[] AttivitaSvolte;
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
-    public partial class Attivita {
-        
-        /// <remarks/>
-        public int Id;
-        
-        /// <remarks/>
-        public string Descrizione;
-        
-        /// <remarks/>
-        public string Tipo;
-        
-        /// <remarks/>
-        public string IndiceProduzione;
-        
-        /// <remarks/>
-        public int OreEsecuzione;
-        
-        /// <remarks/>
-        public System.DateTime DataEsecuzione;
-        
-        /// <remarks/>
-        public bool Completata;
     }
     
     /// <remarks/>

@@ -232,11 +232,14 @@ namespace CIM
 			// aapt resource value: 0x7f070001
 			public const int adjust_width = 2131165185;
 			
-			// aapt resource value: 0x7f070019
-			public const int btnCommesseAperte = 2131165209;
-			
 			// aapt resource value: 0x7f07001a
-			public const int btnCommesseSospese = 2131165210;
+			public const int btnCommesseAperte = 2131165210;
+			
+			// aapt resource value: 0x7f07001b
+			public const int btnCreaCommesse = 2131165211;
+			
+			// aapt resource value: 0x7f070017
+			public const int btnMenu = 2131165207;
 			
 			// aapt resource value: 0x7f070014
 			public const int btnSalvaCommessa = 2131165204;
@@ -247,11 +250,11 @@ namespace CIM
 			// aapt resource value: 0x7f070005
 			public const int imgLogo = 2131165189;
 			
-			// aapt resource value: 0x7f070018
-			public const int lblInfoOperatore = 2131165208;
+			// aapt resource value: 0x7f070019
+			public const int lblInfoOperatore = 2131165209;
 			
-			// aapt resource value: 0x7f070017
-			public const int lblInfoUser = 2131165207;
+			// aapt resource value: 0x7f070018
+			public const int lblInfoUser = 2131165208;
 			
 			// aapt resource value: 0x7f070008
 			public const int linearLayout1 = 2131165192;
@@ -265,8 +268,8 @@ namespace CIM
 			// aapt resource value: 0x7f070013
 			public const int lstAttivita = 2131165203;
 			
-			// aapt resource value: 0x7f07001b
-			public const int lstCommesse = 2131165211;
+			// aapt resource value: 0x7f07001c
+			public const int lstCommesse = 2131165212;
 			
 			// aapt resource value: 0x7f070002
 			public const int none = 2131165186;

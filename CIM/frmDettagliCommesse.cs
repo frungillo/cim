@@ -66,9 +66,9 @@ namespace CIM
 			}
 			txtImpianto.Text = "Impianto: " + commessa.Impianto.Localizzazione + " [" + commessa.Impianto.Descrizione + "]";
 			txtRichiedente.Text = "Richiesta da :" + commessa.Richiedente;
-			txtSquadreInteressate.Text = " --- Squadre: ";
-			foreach (Squadre sq	in commessa.Squadre) {
-				txtSquadreInteressate.Text += "[" + sq.Id + "] ";
+			txtSquadreInteressate.Text = " --- Squadra: ";
+			foreach (Operatore op	in commessa.Operatori) {
+				txtSquadreInteressate.Text +=  op.Coddip + ",";
 			}
 			txtStatoCommessa.Text = "Stato: "+commessa.Stato.ToString () + " ---- Tipo: "+ commessa.Tipo.ToString();
 

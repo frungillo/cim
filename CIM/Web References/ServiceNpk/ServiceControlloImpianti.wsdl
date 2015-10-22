@@ -41,23 +41,8 @@
       <s:complexType name="Operatore">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="Coddip" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Squadra" type="tns:Squadre" />
           <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="AttivitaSvolte" type="tns:ArrayOfAttivita" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Squadre">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Operatori" type="tns:ArrayOfOperatore" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfOperatore">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Operatore" nillable="true" type="tns:Operatore" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfAttivita">
@@ -100,7 +85,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="DataChiusura" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="Richiedente" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Squadre" type="tns:ArrayOfSquadre" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operatori" type="tns:ArrayOfOperatore" />
           <s:element minOccurs="1" maxOccurs="1" name="Stato" type="tns:StatoCommessa" />
           <s:element minOccurs="0" maxOccurs="1" name="Lavori" type="tns:ArrayOfAttivita" />
           <s:element minOccurs="0" maxOccurs="1" name="UteteUltimaModifica" type="s:string" />
@@ -125,9 +110,9 @@
           <s:enumeration value="RichiestaIntervento" />
         </s:restriction>
       </s:simpleType>
-      <s:complexType name="ArrayOfSquadre">
+      <s:complexType name="ArrayOfOperatore">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Squadre" nillable="true" type="tns:Squadre" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Operatore" nillable="true" type="tns:Operatore" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="StatoCommessa">
@@ -139,17 +124,17 @@
           <s:enumeration value="Sospesa" />
         </s:restriction>
       </s:simpleType>
-      <s:element name="GetCommesseBySquadra">
+      <s:element name="GetCommesseByOperatore">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="sq" type="tns:Squadre" />
+            <s:element minOccurs="0" maxOccurs="1" name="op" type="tns:Operatore" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetCommesseBySquadraResponse">
+      <s:element name="GetCommesseByOperatoreResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetCommesseBySquadraResult" type="tns:ArrayOfCommesse" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommesseByOperatoreResult" type="tns:ArrayOfCommesse" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -180,6 +165,15 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="Squadre">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operatori" type="tns:ArrayOfOperatore" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetoperatoriBySquadraResponse">
         <s:complexType>
           <s:sequence>
@@ -288,11 +282,11 @@
   <wsdl:message name="GetCommessaSoapOut">
     <wsdl:part name="parameters" element="tns:GetCommessaResponse" />
   </wsdl:message>
-  <wsdl:message name="GetCommesseBySquadraSoapIn">
-    <wsdl:part name="parameters" element="tns:GetCommesseBySquadra" />
+  <wsdl:message name="GetCommesseByOperatoreSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommesseByOperatore" />
   </wsdl:message>
-  <wsdl:message name="GetCommesseBySquadraSoapOut">
-    <wsdl:part name="parameters" element="tns:GetCommesseBySquadraResponse" />
+  <wsdl:message name="GetCommesseByOperatoreSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommesseByOperatoreResponse" />
   </wsdl:message>
   <wsdl:message name="RegisterDeviceIDSoapIn">
     <wsdl:part name="parameters" element="tns:RegisterDeviceID" />
@@ -431,9 +425,9 @@
       <wsdl:input message="tns:GetCommessaSoapIn" />
       <wsdl:output message="tns:GetCommessaSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetCommesseBySquadra">
-      <wsdl:input message="tns:GetCommesseBySquadraSoapIn" />
-      <wsdl:output message="tns:GetCommesseBySquadraSoapOut" />
+    <wsdl:operation name="GetCommesseByOperatore">
+      <wsdl:input message="tns:GetCommesseByOperatoreSoapIn" />
+      <wsdl:output message="tns:GetCommesseByOperatoreSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="RegisterDeviceID">
       <wsdl:input message="tns:RegisterDeviceIDSoapIn" />
@@ -545,8 +539,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCommesseBySquadra">
-      <soap:operation soapAction="http://srv.anm.it/npk/GetCommesseBySquadra" style="document" />
+    <wsdl:operation name="GetCommesseByOperatore">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetCommesseByOperatore" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -647,8 +641,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCommesseBySquadra">
-      <soap12:operation soapAction="http://srv.anm.it/npk/GetCommesseBySquadra" style="document" />
+    <wsdl:operation name="GetCommesseByOperatore">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetCommesseByOperatore" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

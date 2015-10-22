@@ -5,11 +5,10 @@
     android:layout_height="fill_parent">
     <ImageView
         android:src="@drawable/ict_logo"
-        android:layout_width="match_parent"
-        android:layout_height="36.9dp"
         android:id="@+id/imgLogo"
         android:scaleType="fitCenter"
-        android:layout_alignParentTop="true" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -41,13 +40,13 @@
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/btnCommesseAperte"
-            android:text="Commesse Aperte"
+            android:text="Lista Commesse"
             android:layout_width="0dp"
             android:layout_height="40sp"
             android:layout_weight=".70" />
         <Button
-            android:id="@+id/btnCommesseSospese"
-            android:text="Commesse Sospese"
+            android:id="@+id/btnCreaCommesse"
+            android:text="Crea Commessa"
             android:layout_width="0dp"
             android:layout_height="40sp"
             android:layout_weight=".70" />
