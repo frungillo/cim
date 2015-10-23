@@ -232,14 +232,11 @@ namespace CIM
 			// aapt resource value: 0x7f070001
 			public const int adjust_width = 2131165185;
 			
+			// aapt resource value: 0x7f070019
+			public const int btnCommesseAperte = 2131165209;
+			
 			// aapt resource value: 0x7f07001a
-			public const int btnCommesseAperte = 2131165210;
-			
-			// aapt resource value: 0x7f07001b
-			public const int btnCreaCommesse = 2131165211;
-			
-			// aapt resource value: 0x7f070017
-			public const int btnMenu = 2131165207;
+			public const int btnCreaCommesse = 2131165210;
 			
 			// aapt resource value: 0x7f070014
 			public const int btnSalvaCommessa = 2131165204;
@@ -250,11 +247,11 @@ namespace CIM
 			// aapt resource value: 0x7f070005
 			public const int imgLogo = 2131165189;
 			
-			// aapt resource value: 0x7f070019
-			public const int lblInfoOperatore = 2131165209;
-			
 			// aapt resource value: 0x7f070018
-			public const int lblInfoUser = 2131165208;
+			public const int lblInfoOperatore = 2131165208;
+			
+			// aapt resource value: 0x7f070017
+			public const int lblInfoUser = 2131165207;
 			
 			// aapt resource value: 0x7f070008
 			public const int linearLayout1 = 2131165192;
@@ -268,8 +265,8 @@ namespace CIM
 			// aapt resource value: 0x7f070013
 			public const int lstAttivita = 2131165203;
 			
-			// aapt resource value: 0x7f07001c
-			public const int lstCommesse = 2131165212;
+			// aapt resource value: 0x7f07001b
+			public const int lstCommesse = 2131165211;
 			
 			// aapt resource value: 0x7f070002
 			public const int none = 2131165186;
@@ -346,13 +343,16 @@ namespace CIM
 			public const int CheckedListItem = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int frmDettagliCommesse = 2130903041;
+			public const int frmCreaCommessa = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int frmLeggiMessaggi = 2130903042;
+			public const int frmDettagliCommesse = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Main = 2130903043;
+			public const int frmLeggiMessaggi = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int Main = 2130903044;
 			
 			static Layout()
 			{
@@ -385,8 +385,8 @@ namespace CIM
 			// aapt resource value: 0x7f04000f
 			public const int common_android_wear_update_title = 2130968591;
 			
-			// aapt resource value: 0x7f04001f
-			public const int common_google_play_services_api_unavailable_text = 2130968607;
+			// aapt resource value: 0x7f04001d
+			public const int common_google_play_services_api_unavailable_text = 2130968605;
 			
 			// aapt resource value: 0x7f04000d
 			public const int common_google_play_services_enable_button = 2130968589;
@@ -433,11 +433,11 @@ namespace CIM
 			// aapt resource value: 0x7f040002
 			public const int common_google_play_services_notification_ticker = 2130968578;
 			
-			// aapt resource value: 0x7f040021
-			public const int common_google_play_services_sign_in_failed_text = 2130968609;
+			// aapt resource value: 0x7f04001f
+			public const int common_google_play_services_sign_in_failed_text = 2130968607;
 			
-			// aapt resource value: 0x7f040020
-			public const int common_google_play_services_sign_in_failed_title = 2130968608;
+			// aapt resource value: 0x7f04001e
+			public const int common_google_play_services_sign_in_failed_title = 2130968606;
 			
 			// aapt resource value: 0x7f040018
 			public const int common_google_play_services_unknown_issue = 2130968600;
@@ -463,14 +463,14 @@ namespace CIM
 			// aapt resource value: 0x7f040012
 			public const int common_google_play_services_updating_title = 2130968594;
 			
-			// aapt resource value: 0x7f04001e
-			public const int common_open_on_phone = 2130968606;
-			
 			// aapt resource value: 0x7f04001c
-			public const int common_signin_button_text = 2130968604;
+			public const int common_open_on_phone = 2130968604;
 			
-			// aapt resource value: 0x7f04001d
-			public const int common_signin_button_text_long = 2130968605;
+			// aapt resource value: 0x7f040020
+			public const int common_signin_button_text = 2130968608;
+			
+			// aapt resource value: 0x7f040021
+			public const int common_signin_button_text_long = 2130968609;
 			
 			// aapt resource value: 0x7f040022
 			public const int hello = 2130968610;

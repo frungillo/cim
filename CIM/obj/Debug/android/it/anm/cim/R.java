@@ -106,19 +106,18 @@ containing a value of this type.
     public static final class id {
         public static final int adjust_height=0x7f070000;
         public static final int adjust_width=0x7f070001;
-        public static final int btnCommesseAperte=0x7f07001a;
-        public static final int btnCreaCommesse=0x7f07001b;
-        public static final int btnMenu=0x7f070017;
+        public static final int btnCommesseAperte=0x7f070019;
+        public static final int btnCreaCommesse=0x7f07001a;
         public static final int btnSalvaCommessa=0x7f070014;
         public static final int chkCheckBoxChk=0x7f070004;
         public static final int imgLogo=0x7f070005;
-        public static final int lblInfoOperatore=0x7f070019;
-        public static final int lblInfoUser=0x7f070018;
+        public static final int lblInfoOperatore=0x7f070018;
+        public static final int lblInfoUser=0x7f070017;
         public static final int linearLayout1=0x7f070008;
         public static final int linearLayout2=0x7f07000c;
         public static final int linearLayout3=0x7f07000e;
         public static final int lstAttivita=0x7f070013;
-        public static final int lstCommesse=0x7f07001c;
+        public static final int lstCommesse=0x7f07001b;
         public static final int none=0x7f070002;
         public static final int textView1=0x7f070006;
         public static final int textView2=0x7f070012;
@@ -139,9 +138,10 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int checkedlistitem=0x7f030000;
-        public static final int frmdettaglicommesse=0x7f030001;
-        public static final int frmleggimessaggi=0x7f030002;
-        public static final int main=0x7f030003;
+        public static final int frmcreacommessa=0x7f030001;
+        public static final int frmdettaglicommesse=0x7f030002;
+        public static final int frmleggimessaggi=0x7f030003;
+        public static final int main=0x7f030004;
     }
     public static final class string {
         public static final int app_name=0x7f040023;
@@ -164,7 +164,7 @@ containing a value of this type.
         public static final int common_android_wear_update_title=0x7f04000f;
         /**  Message in confirmation dialog informing the user that one of the APIs they attepmt to access is not available. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_api_unavailable_text=0x7f04001f;
+        public static final int common_google_play_services_api_unavailable_text=0x7f04001d;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -221,10 +221,10 @@ containing a value of this type.
         public static final int common_google_play_services_notification_ticker=0x7f040002;
         /**  Message in confirmation dialog informing the user that the account could not be signed in. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_sign_in_failed_text=0x7f040021;
+        public static final int common_google_play_services_sign_in_failed_text=0x7f04001f;
         /**  Title of confirmation dialog informing the user that the account could not be signed in. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_sign_in_failed_title=0x7f040020;
+        public static final int common_google_play_services_sign_in_failed_title=0x7f04001e;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
@@ -256,13 +256,13 @@ containing a value of this type.
         public static final int common_google_play_services_updating_title=0x7f040012;
         /**  Label for an action to open a notifications content on the phone [CHAR LIMIT=25] 
          */
-        public static final int common_open_on_phone=0x7f04001e;
+        public static final int common_open_on_phone=0x7f04001c;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static final int common_signin_button_text=0x7f04001c;
+        public static final int common_signin_button_text=0x7f040020;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static final int common_signin_button_text_long=0x7f04001d;
+        public static final int common_signin_button_text_long=0x7f040021;
         public static final int hello=0x7f040022;
     }
     public static final class styleable {

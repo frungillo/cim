@@ -107,7 +107,7 @@ containing a value of this type.
         public static int adjust_height=0x7f070000;
         public static int adjust_width=0x7f070001;
         public static int btnCommesseAperte=0x7f070019;
-        public static int btnCommesseSospese=0x7f07001a;
+        public static int btnCreaCommesse=0x7f07001a;
         public static int btnSalvaCommessa=0x7f070014;
         public static int chkCheckBoxChk=0x7f070004;
         public static int imgLogo=0x7f070005;
@@ -138,9 +138,10 @@ containing a value of this type.
     }
     public static final class layout {
         public static int checkedlistitem=0x7f030000;
-        public static int frmdettaglicommesse=0x7f030001;
-        public static int frmleggimessaggi=0x7f030002;
-        public static int main=0x7f030003;
+        public static int frmcreacommessa=0x7f030001;
+        public static int frmdettaglicommesse=0x7f030002;
+        public static int frmleggimessaggi=0x7f030003;
+        public static int main=0x7f030004;
     }
     public static final class string {
         public static int app_name=0x7f040023;
@@ -163,7 +164,7 @@ containing a value of this type.
         public static int common_android_wear_update_title=0x7f04000f;
         /**  Message in confirmation dialog informing the user that one of the APIs they attepmt to access is not available. [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_api_unavailable_text=0x7f04001f;
+        public static int common_google_play_services_api_unavailable_text=0x7f04001d;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -220,10 +221,10 @@ containing a value of this type.
         public static int common_google_play_services_notification_ticker=0x7f040002;
         /**  Message in confirmation dialog informing the user that the account could not be signed in. [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_sign_in_failed_text=0x7f040021;
+        public static int common_google_play_services_sign_in_failed_text=0x7f04001f;
         /**  Title of confirmation dialog informing the user that the account could not be signed in. [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_sign_in_failed_title=0x7f040020;
+        public static int common_google_play_services_sign_in_failed_title=0x7f04001e;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
@@ -255,13 +256,13 @@ containing a value of this type.
         public static int common_google_play_services_updating_title=0x7f040012;
         /**  Label for an action to open a notifications content on the phone [CHAR LIMIT=25] 
          */
-        public static int common_open_on_phone=0x7f04001e;
+        public static int common_open_on_phone=0x7f04001c;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static int common_signin_button_text=0x7f04001c;
+        public static int common_signin_button_text=0x7f040020;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static int common_signin_button_text_long=0x7f04001d;
+        public static int common_signin_button_text_long=0x7f040021;
         public static int hello=0x7f040022;
     }
     public static final class styleable {

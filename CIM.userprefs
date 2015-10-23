@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="CIM\CIM.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.e3a1ad30" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CIM\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="CIM\MainActivity.cs" Line="62" Column="5" />
+      <File FileName="CIM\MainActivity.cs" Line="192" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

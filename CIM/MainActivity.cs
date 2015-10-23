@@ -27,6 +27,7 @@ namespace CIM
 
 		/*Variabili Globali*/
 		ServiceNpk.ServiceControlloImpianti s = new ServiceControlloImpianti();
+
 		string Imei;
 		TextView lblInfoUser, lblInfoOp;
 		ListView lstCommesse;
@@ -187,19 +188,31 @@ namespace CIM
 		}
 
 		/*Routine di caricamento lista*/
+		Object obj = new object();
 		private void CaricaLista() {
 			prepareWaitDialog ("Carico commesse per la squadra...", false);
 			dialog.Show ();
 			s.BeginGetCommesseByOperatore (op, (ar) => {
-				Commesse[] ls = s.EndGetCommesseByOperatore(ar);
-				RunOnUiThread(()=> {
-					CommesseListAdapter DatiLista = new CommesseListAdapter (this, ls);
-					lstCommesse.Adapter = DatiLista;
-					lstCommesse.FastScrollEnabled = true;
-					lstCommesse.ItemClick += LstCommesse_ItemClick;
-					dialog.Dismiss();
-				});
-			}, null);
+				try {
+					Commesse[] ls = s.EndGetCommesseByOperatore(ar);
+					RunOnUiThread(()=> {
+						CommesseListAdapter DatiLista = new CommesseListAdapter (this, ls);
+						lstCommesse.Adapter = DatiLista;
+						lstCommesse.FastScrollEnabled = true;
+						lstCommesse.ItemClick += LstCommesse_ItemClick;
+						dialog.Dismiss();
+					});
+				} catch (Exception ex) {
+					RunOnUiThread(()=>{
+						Toast.MakeText(this,"Errore:"+ex.Message,ToastLength.Short).Show();
+						dialog.Dismiss();
+						CaricaLista();
+						return;
+					});					
+				}
+
+			}, 
+				obj);
 
 		}
 
