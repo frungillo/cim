@@ -10,4 +10,5 @@ C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.Web.Se
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\System.Xml.dll
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.Android.Support.v4.dll
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.GooglePlayServices.Base.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.GooglePlayServices.Basement.dll
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\assemblies\Xamarin.GooglePlayServices.Gcm.dll

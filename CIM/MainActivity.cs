@@ -72,6 +72,10 @@ namespace CIM
 				/*********************/
 
 				btnListaCommesse.Click += BtnListaCommesse_Click;
+				btnCreaCommessa.Click += (sender, e) => {
+					StartActivity(new Intent(this, typeof(frmCreaCommessa)));
+				};
+
 
 				Imei = tl.DeviceId;
 				dialog.Show ();
@@ -260,12 +264,7 @@ namespace CIM
 		}
 
 
-		/// <summary>
-		/// Prepares the wait dialog.
-		/// </summary>
-		/// <returns>The wait dialog.</returns>
-		/// <param name="msg">Message.</param>
-		/// <param name="CanDismiss">If set to <c>true</c> can dismiss.</param>
+		/*Progress Dialog*/
 		private ProgressDialog  prepareWaitDialog(string msg, bool CanDismiss) 
 		{
 			dialog = new ProgressDialog(this);

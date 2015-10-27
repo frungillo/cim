@@ -76,6 +76,7 @@
     <Compile Include="AttivitaListAdapter.cs" />
     <Compile Include="frmLeggiMessaggi.cs" />
     <Compile Include="Classi.cs" />
+    <Compile Include="frmCreaCommessa.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -111,6 +112,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.jpg" />
     <AndroidResource Include="Resources\layout\frmLeggiMessaggi.axml" />
     <AndroidResource Include="Resources\layout\frmCreaCommessa.axml" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_sfondo.gif" />
+    <AndroidResource Include="Resources\layout-it-rIT-normal-port-mdpi-v19\Main.axml" />
+    <AndroidResource Include="Resources\layout-normal-port\Main.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

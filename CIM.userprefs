@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.e3a1ad30" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="CIM\MainActivity.cs" Line="192" Column="29" />
+      <File FileName="CIM\MainActivity.cs" Line="44" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -13,5 +13,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.CIM AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.DeviceDefault.Light.NoActionBar" />
+  <MonoDevelop.Ide.ItemProperties.CIM AndroidDesignerPreferredDevice="Nexus 4" AndroidDesignerPreferredTheme="Theme.Holo.Light.NoActionBar" />
 </Properties>

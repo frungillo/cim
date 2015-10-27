@@ -33,3 +33,8 @@ C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\res\drawable-xxxhdpi\ico
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\res\layout\frmleggimessaggi.xml
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\R.cs.flag
 C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\uploadflags.txt
+C:\Users\frungillo\Documents\Projects\cim\CIM\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\res\layout\frmcreacommessa.xml
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\res\drawable-xhdpi\logo_sfondo.gif
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\res\layout-it-rit-normal-port-mdpi-v19\main.xml
+C:\Users\frungillo\Documents\Projects\cim\CIM\obj\Debug\res\layout-normal-port\main.xml

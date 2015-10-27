@@ -10,9 +10,9 @@ public class GoogleApiClient_OnConnectionFailedListenerImplementor
 	static final String __md_methods;
 	static {
 		__md_methods = 
-			"n_onConnectionFailed:(Lcom/google/android/gms/common/ConnectionResult;)V:GetOnConnectionFailed_Lcom_google_android_gms_common_ConnectionResult_Handler:Android.Gms.Common.Apis.IGoogleApiClientOnConnectionFailedListenerInvoker, Xamarin.GooglePlayServices.Base\n" +
+			"n_onConnectionFailed:(Lcom/google/android/gms/common/ConnectionResult;)V:GetOnConnectionFailed_Lcom_google_android_gms_common_ConnectionResult_Handler:Android.Gms.Common.Apis.GoogleApiClient/IOnConnectionFailedListenerInvoker, Xamarin.GooglePlayServices.Basement\n" +
 			"";
-		mono.android.Runtime.register ("Android.Gms.Common.Apis.IGoogleApiClientOnConnectionFailedListenerImplementor, Xamarin.GooglePlayServices.Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", GoogleApiClient_OnConnectionFailedListenerImplementor.class, __md_methods);
+		mono.android.Runtime.register ("Android.Gms.Common.Apis.GoogleApiClient/IOnConnectionFailedListenerImplementor, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", GoogleApiClient_OnConnectionFailedListenerImplementor.class, __md_methods);
 	}
 
 
@@ -20,7 +20,7 @@ public class GoogleApiClient_OnConnectionFailedListenerImplementor
 	{
 		super ();
 		if (getClass () == GoogleApiClient_OnConnectionFailedListenerImplementor.class)
-			mono.android.TypeManager.Activate ("Android.Gms.Common.Apis.IGoogleApiClientOnConnectionFailedListenerImplementor, Xamarin.GooglePlayServices.Base, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("Android.Gms.Common.Apis.GoogleApiClient/IOnConnectionFailedListenerImplementor, Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 

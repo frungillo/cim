@@ -34,6 +34,24 @@ namespace CIM.ServiceNpk {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetImpianti", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Impianti[] GetImpianti() {
+            object[] results = this.Invoke("GetImpianti", new object[0]);
+            return ((Impianti[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetImpianti(System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetImpianti", new object[0], callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public Impianti[] EndGetImpianti(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((Impianti[])(results[0]));
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/ControlloCredenziali", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public Utente ControlloCredenziali(string imei) {
             object[] results = this.Invoke("ControlloCredenziali", new object[] {
@@ -176,6 +194,24 @@ namespace CIM.ServiceNpk {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetAttivita", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Attivita[] GetAttivita() {
+            object[] results = this.Invoke("GetAttivita", new object[0]);
+            return ((Attivita[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetAttivita(System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetAttivita", new object[0], callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public Attivita[] EndGetAttivita(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((Attivita[])(results[0]));
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/SalvaStatoAttivitaCommessa", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool SalvaStatoAttivitaCommessa(Commesse commessa) {
             object[] results = this.Invoke("SalvaStatoAttivitaCommessa", new object[] {
@@ -274,19 +310,22 @@ namespace CIM.ServiceNpk {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
-    public partial class Utente {
+    public partial class Impianti {
         
         /// <remarks/>
-        public string Matricola;
+        public string Id;
         
         /// <remarks/>
-        public string Nome;
+        public string Localizzazione;
         
         /// <remarks/>
-        public string Cognome;
+        public string Latitudine;
         
         /// <remarks/>
-        public string NumTel;
+        public string Longitudine;
+        
+        /// <remarks/>
+        public string Descrizione;
     }
     
     /// <remarks/>
@@ -359,30 +398,6 @@ namespace CIM.ServiceNpk {
         
         /// <remarks/>
         public bool Completata;
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
-    public partial class Impianti {
-        
-        /// <remarks/>
-        public string Id;
-        
-        /// <remarks/>
-        public string Localizzazione;
-        
-        /// <remarks/>
-        public string Latitudine;
-        
-        /// <remarks/>
-        public string Longitudine;
-        
-        /// <remarks/>
-        public string Descrizione;
     }
     
     /// <remarks/>
@@ -475,5 +490,26 @@ namespace CIM.ServiceNpk {
         
         /// <remarks/>
         Sospesa,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("XamarinStudio", "4.0.0.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://srv.anm.it/npk")]
+    public partial class Utente {
+        
+        /// <remarks/>
+        public string Matricola;
+        
+        /// <remarks/>
+        public string Nome;
+        
+        /// <remarks/>
+        public string Cognome;
+        
+        /// <remarks/>
+        public string NumTel;
     }
 }

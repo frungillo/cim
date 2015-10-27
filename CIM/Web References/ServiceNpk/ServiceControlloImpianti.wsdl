@@ -2,6 +2,30 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://srv.anm.it/npk" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://srv.anm.it/npk" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://srv.anm.it/npk">
+      <s:element name="GetImpianti">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetImpiantiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImpiantiResult" type="tns:ArrayOfImpianti" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfImpianti">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Impianti" nillable="true" type="tns:Impianti" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Impianti">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localizzazione" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Latitudine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Longitudine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="ControlloCredenziali">
         <s:complexType>
           <s:sequence>
@@ -91,15 +115,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="UteteUltimaModifica" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="DataUltimeModifica" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="TerminaleUltimaModifica" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Impianti">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Localizzazione" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Latitudine" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Longitudine" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="TipoCommessa">
@@ -195,6 +210,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetAttivita">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAttivitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttivitaResult" type="tns:ArrayOfAttivita" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SalvaStatoAttivitaCommessa">
         <s:complexType>
           <s:sequence>
@@ -257,6 +282,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ArrayOfImpianti" nillable="true" type="tns:ArrayOfImpianti" />
       <s:element name="Utente" nillable="true" type="tns:Utente" />
       <s:element name="Operatore" nillable="true" type="tns:Operatore" />
       <s:element name="Commesse" nillable="true" type="tns:Commesse" />
@@ -264,6 +290,12 @@
       <s:element name="ArrayOfAttivita" nillable="true" type="tns:ArrayOfAttivita" />
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetImpiantiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImpianti" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImpiantiResponse" />
+  </wsdl:message>
   <wsdl:message name="ControlloCredenzialiSoapIn">
     <wsdl:part name="parameters" element="tns:ControlloCredenziali" />
   </wsdl:message>
@@ -306,6 +338,12 @@
   <wsdl:message name="GetAttivitaByIdLavoroSoapOut">
     <wsdl:part name="parameters" element="tns:GetAttivitaByIdLavoroResponse" />
   </wsdl:message>
+  <wsdl:message name="GetAttivitaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttivita" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttivitaResponse" />
+  </wsdl:message>
   <wsdl:message name="SalvaStatoAttivitaCommessaSoapIn">
     <wsdl:part name="parameters" element="tns:SalvaStatoAttivitaCommessa" />
   </wsdl:message>
@@ -329,6 +367,10 @@
   </wsdl:message>
   <wsdl:message name="SendAndroidNotificationByStringSoapOut">
     <wsdl:part name="parameters" element="tns:SendAndroidNotificationByStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantiHttpGetIn" />
+  <wsdl:message name="GetImpiantiHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfImpianti" />
   </wsdl:message>
   <wsdl:message name="ControlloCredenzialiHttpGetIn">
     <wsdl:part name="imei" type="s:string" />
@@ -361,6 +403,10 @@
   <wsdl:message name="GetAttivitaByIdLavoroHttpGetOut">
     <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
   </wsdl:message>
+  <wsdl:message name="GetAttivitaHttpGetIn" />
+  <wsdl:message name="GetAttivitaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
+  </wsdl:message>
   <wsdl:message name="SendAndroidNotificationByStringHttpGetIn">
     <wsdl:part name="Matricola" type="s:string" />
     <wsdl:part name="msg" type="s:string" />
@@ -370,6 +416,10 @@
   </wsdl:message>
   <wsdl:message name="SendAndroidNotificationByStringHttpGetOut">
     <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantiHttpPostIn" />
+  <wsdl:message name="GetImpiantiHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfImpianti" />
   </wsdl:message>
   <wsdl:message name="ControlloCredenzialiHttpPostIn">
     <wsdl:part name="imei" type="s:string" />
@@ -402,6 +452,10 @@
   <wsdl:message name="GetAttivitaByIdLavoroHttpPostOut">
     <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
   </wsdl:message>
+  <wsdl:message name="GetAttivitaHttpPostIn" />
+  <wsdl:message name="GetAttivitaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
+  </wsdl:message>
   <wsdl:message name="SendAndroidNotificationByStringHttpPostIn">
     <wsdl:part name="Matricola" type="s:string" />
     <wsdl:part name="msg" type="s:string" />
@@ -413,6 +467,10 @@
     <wsdl:part name="Body" element="tns:boolean" />
   </wsdl:message>
   <wsdl:portType name="ServiceControlloImpiantiSoap">
+    <wsdl:operation name="GetImpianti">
+      <wsdl:input message="tns:GetImpiantiSoapIn" />
+      <wsdl:output message="tns:GetImpiantiSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <wsdl:input message="tns:ControlloCredenzialiSoapIn" />
       <wsdl:output message="tns:ControlloCredenzialiSoapOut" />
@@ -441,6 +499,10 @@
       <wsdl:input message="tns:GetAttivitaByIdLavoroSoapIn" />
       <wsdl:output message="tns:GetAttivitaByIdLavoroSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <wsdl:input message="tns:GetAttivitaSoapIn" />
+      <wsdl:output message="tns:GetAttivitaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SalvaStatoAttivitaCommessa">
       <wsdl:input message="tns:SalvaStatoAttivitaCommessaSoapIn" />
       <wsdl:output message="tns:SalvaStatoAttivitaCommessaSoapOut" />
@@ -459,6 +521,10 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ServiceControlloImpiantiHttpGet">
+    <wsdl:operation name="GetImpianti">
+      <wsdl:input message="tns:GetImpiantiHttpGetIn" />
+      <wsdl:output message="tns:GetImpiantiHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <wsdl:input message="tns:ControlloCredenzialiHttpGetIn" />
       <wsdl:output message="tns:ControlloCredenzialiHttpGetOut" />
@@ -479,12 +545,20 @@
       <wsdl:input message="tns:GetAttivitaByIdLavoroHttpGetIn" />
       <wsdl:output message="tns:GetAttivitaByIdLavoroHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <wsdl:input message="tns:GetAttivitaHttpGetIn" />
+      <wsdl:output message="tns:GetAttivitaHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendAndroidNotificationByString">
       <wsdl:input message="tns:SendAndroidNotificationByStringHttpGetIn" />
       <wsdl:output message="tns:SendAndroidNotificationByStringHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ServiceControlloImpiantiHttpPost">
+    <wsdl:operation name="GetImpianti">
+      <wsdl:input message="tns:GetImpiantiHttpPostIn" />
+      <wsdl:output message="tns:GetImpiantiHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <wsdl:input message="tns:ControlloCredenzialiHttpPostIn" />
       <wsdl:output message="tns:ControlloCredenzialiHttpPostOut" />
@@ -505,6 +579,10 @@
       <wsdl:input message="tns:GetAttivitaByIdLavoroHttpPostIn" />
       <wsdl:output message="tns:GetAttivitaByIdLavoroHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <wsdl:input message="tns:GetAttivitaHttpPostIn" />
+      <wsdl:output message="tns:GetAttivitaHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendAndroidNotificationByString">
       <wsdl:input message="tns:SendAndroidNotificationByStringHttpPostIn" />
       <wsdl:output message="tns:SendAndroidNotificationByStringHttpPostOut" />
@@ -512,6 +590,15 @@
   </wsdl:portType>
   <wsdl:binding name="ServiceControlloImpiantiSoap" type="tns:ServiceControlloImpiantiSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetImpianti">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetImpianti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <soap:operation soapAction="http://srv.anm.it/npk/ControlloCredenziali" style="document" />
       <wsdl:input>
@@ -575,6 +662,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetAttivita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SalvaStatoAttivitaCommessa">
       <soap:operation soapAction="http://srv.anm.it/npk/SalvaStatoAttivitaCommessa" style="document" />
       <wsdl:input>
@@ -614,6 +710,15 @@
   </wsdl:binding>
   <wsdl:binding name="ServiceControlloImpiantiSoap12" type="tns:ServiceControlloImpiantiSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetImpianti">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetImpianti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <soap12:operation soapAction="http://srv.anm.it/npk/ControlloCredenziali" style="document" />
       <wsdl:input>
@@ -677,6 +782,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetAttivita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SalvaStatoAttivitaCommessa">
       <soap12:operation soapAction="http://srv.anm.it/npk/SalvaStatoAttivitaCommessa" style="document" />
       <wsdl:input>
@@ -716,6 +830,15 @@
   </wsdl:binding>
   <wsdl:binding name="ServiceControlloImpiantiHttpGet" type="tns:ServiceControlloImpiantiHttpGet">
     <http:binding verb="GET" />
+    <wsdl:operation name="GetImpianti">
+      <http:operation location="/GetImpianti" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <http:operation location="/ControlloCredenziali" />
       <wsdl:input>
@@ -754,6 +877,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttivitaByIdLavoro">
       <http:operation location="/GetAttivitaByIdLavoro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <http:operation location="/GetAttivita" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -773,6 +905,15 @@
   </wsdl:binding>
   <wsdl:binding name="ServiceControlloImpiantiHttpPost" type="tns:ServiceControlloImpiantiHttpPost">
     <http:binding verb="POST" />
+    <wsdl:operation name="GetImpianti">
+      <http:operation location="/GetImpianti" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ControlloCredenziali">
       <http:operation location="/ControlloCredenziali" />
       <wsdl:input>
@@ -811,6 +952,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttivitaByIdLavoro">
       <http:operation location="/GetAttivitaByIdLavoro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivita">
+      <http:operation location="/GetAttivita" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
