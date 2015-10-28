@@ -61,8 +61,9 @@
         <LinearLayout
             p1:orientation="vertical"
             p1:layout_width="match_parent"
-            p1:layout_height="wrap_content"
-            p1:id="@+id/linearLayout4">
+            p1:layout_height="0dp"
+            p1:id="@+id/linearLayout4"
+            p1:layout_weight="0.8">
             <TextView
                 p1:text="Arrivita richieste:"
                 p1:textAppearance="?android:attr/textAppearanceMedium"

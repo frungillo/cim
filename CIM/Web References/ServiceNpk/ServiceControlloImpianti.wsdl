@@ -220,6 +220,62 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetAttivitaByCommaString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ida" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttivitaByCommaStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttivitaByCommaStringResult" type="tns:ArrayOfAttivita" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImpiantoByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id_impianto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImpiantoByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImpiantoByIDResult" type="tns:Impianti" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperatoriByCommaMatricola">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="matricola" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperatoriByCommaMatricolaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOperatoriByCommaMatricolaResult" type="tns:ArrayOfOperatore" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvaCommessaAndroid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:Commesse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalvaCommessaAndroidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalvaCommessaAndroidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SalvaStatoAttivitaCommessa">
         <s:complexType>
           <s:sequence>
@@ -288,6 +344,8 @@
       <s:element name="Commesse" nillable="true" type="tns:Commesse" />
       <s:element name="boolean" type="s:boolean" />
       <s:element name="ArrayOfAttivita" nillable="true" type="tns:ArrayOfAttivita" />
+      <s:element name="Impianti" nillable="true" type="tns:Impianti" />
+      <s:element name="ArrayOfOperatore" nillable="true" type="tns:ArrayOfOperatore" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetImpiantiSoapIn">
@@ -343,6 +401,30 @@
   </wsdl:message>
   <wsdl:message name="GetAttivitaSoapOut">
     <wsdl:part name="parameters" element="tns:GetAttivitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByCommaStringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttivitaByCommaString" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByCommaStringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttivitaByCommaStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantoByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImpiantoByID" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantoByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImpiantoByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoriByCommaMatricolaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperatoriByCommaMatricola" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoriByCommaMatricolaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperatoriByCommaMatricolaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalvaCommessaAndroidSoapIn">
+    <wsdl:part name="parameters" element="tns:SalvaCommessaAndroid" />
+  </wsdl:message>
+  <wsdl:message name="SalvaCommessaAndroidSoapOut">
+    <wsdl:part name="parameters" element="tns:SalvaCommessaAndroidResponse" />
   </wsdl:message>
   <wsdl:message name="SalvaStatoAttivitaCommessaSoapIn">
     <wsdl:part name="parameters" element="tns:SalvaStatoAttivitaCommessa" />
@@ -407,6 +489,24 @@
   <wsdl:message name="GetAttivitaHttpGetOut">
     <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
   </wsdl:message>
+  <wsdl:message name="GetAttivitaByCommaStringHttpGetIn">
+    <wsdl:part name="ida" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByCommaStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantoByIDHttpGetIn">
+    <wsdl:part name="id_impianto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantoByIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:Impianti" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoriByCommaMatricolaHttpGetIn">
+    <wsdl:part name="matricola" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoriByCommaMatricolaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOperatore" />
+  </wsdl:message>
   <wsdl:message name="SendAndroidNotificationByStringHttpGetIn">
     <wsdl:part name="Matricola" type="s:string" />
     <wsdl:part name="msg" type="s:string" />
@@ -456,6 +556,24 @@
   <wsdl:message name="GetAttivitaHttpPostOut">
     <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
   </wsdl:message>
+  <wsdl:message name="GetAttivitaByCommaStringHttpPostIn">
+    <wsdl:part name="ida" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAttivitaByCommaStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttivita" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantoByIDHttpPostIn">
+    <wsdl:part name="id_impianto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetImpiantoByIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:Impianti" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoriByCommaMatricolaHttpPostIn">
+    <wsdl:part name="matricola" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperatoriByCommaMatricolaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOperatore" />
+  </wsdl:message>
   <wsdl:message name="SendAndroidNotificationByStringHttpPostIn">
     <wsdl:part name="Matricola" type="s:string" />
     <wsdl:part name="msg" type="s:string" />
@@ -503,6 +621,22 @@
       <wsdl:input message="tns:GetAttivitaSoapIn" />
       <wsdl:output message="tns:GetAttivitaSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <wsdl:input message="tns:GetAttivitaByCommaStringSoapIn" />
+      <wsdl:output message="tns:GetAttivitaByCommaStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <wsdl:input message="tns:GetImpiantoByIDSoapIn" />
+      <wsdl:output message="tns:GetImpiantoByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <wsdl:input message="tns:GetOperatoriByCommaMatricolaSoapIn" />
+      <wsdl:output message="tns:GetOperatoriByCommaMatricolaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SalvaCommessaAndroid">
+      <wsdl:input message="tns:SalvaCommessaAndroidSoapIn" />
+      <wsdl:output message="tns:SalvaCommessaAndroidSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SalvaStatoAttivitaCommessa">
       <wsdl:input message="tns:SalvaStatoAttivitaCommessaSoapIn" />
       <wsdl:output message="tns:SalvaStatoAttivitaCommessaSoapOut" />
@@ -549,6 +683,18 @@
       <wsdl:input message="tns:GetAttivitaHttpGetIn" />
       <wsdl:output message="tns:GetAttivitaHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <wsdl:input message="tns:GetAttivitaByCommaStringHttpGetIn" />
+      <wsdl:output message="tns:GetAttivitaByCommaStringHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <wsdl:input message="tns:GetImpiantoByIDHttpGetIn" />
+      <wsdl:output message="tns:GetImpiantoByIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <wsdl:input message="tns:GetOperatoriByCommaMatricolaHttpGetIn" />
+      <wsdl:output message="tns:GetOperatoriByCommaMatricolaHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="SendAndroidNotificationByString">
       <wsdl:input message="tns:SendAndroidNotificationByStringHttpGetIn" />
       <wsdl:output message="tns:SendAndroidNotificationByStringHttpGetOut" />
@@ -582,6 +728,18 @@
     <wsdl:operation name="GetAttivita">
       <wsdl:input message="tns:GetAttivitaHttpPostIn" />
       <wsdl:output message="tns:GetAttivitaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <wsdl:input message="tns:GetAttivitaByCommaStringHttpPostIn" />
+      <wsdl:output message="tns:GetAttivitaByCommaStringHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <wsdl:input message="tns:GetImpiantoByIDHttpPostIn" />
+      <wsdl:output message="tns:GetImpiantoByIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <wsdl:input message="tns:GetOperatoriByCommaMatricolaHttpPostIn" />
+      <wsdl:output message="tns:GetOperatoriByCommaMatricolaHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="SendAndroidNotificationByString">
       <wsdl:input message="tns:SendAndroidNotificationByStringHttpPostIn" />
@@ -664,6 +822,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttivita">
       <soap:operation soapAction="http://srv.anm.it/npk/GetAttivita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetAttivitaByCommaString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetImpiantoByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <soap:operation soapAction="http://srv.anm.it/npk/GetOperatoriByCommaMatricola" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvaCommessaAndroid">
+      <soap:operation soapAction="http://srv.anm.it/npk/SalvaCommessaAndroid" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -791,6 +985,42 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetAttivitaByCommaString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetImpiantoByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <soap12:operation soapAction="http://srv.anm.it/npk/GetOperatoriByCommaMatricola" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SalvaCommessaAndroid">
+      <soap12:operation soapAction="http://srv.anm.it/npk/SalvaCommessaAndroid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SalvaStatoAttivitaCommessa">
       <soap12:operation soapAction="http://srv.anm.it/npk/SalvaStatoAttivitaCommessa" style="document" />
       <wsdl:input>
@@ -893,6 +1123,33 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <http:operation location="/GetAttivitaByCommaString" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <http:operation location="/GetImpiantoByID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <http:operation location="/GetOperatoriByCommaMatricola" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SendAndroidNotificationByString">
       <http:operation location="/SendAndroidNotificationByString" />
       <wsdl:input>
@@ -961,6 +1218,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAttivita">
       <http:operation location="/GetAttivita" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttivitaByCommaString">
+      <http:operation location="/GetAttivitaByCommaString" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImpiantoByID">
+      <http:operation location="/GetImpiantoByID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatoriByCommaMatricola">
+      <http:operation location="/GetOperatoriByCommaMatricola" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

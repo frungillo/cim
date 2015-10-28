@@ -78,6 +78,7 @@ namespace CIM
 			ls = commessa.Lavori;
 			AttivitaListAdapter datiLista = new AttivitaListAdapter (this, ls);
 			lstAttivita.Adapter = datiLista;
+
 			datiLista.OnCheckChange+= (int pos, bool stato) => {
 				ls[pos].Completata = stato;
 				commessa.Lavori = ls;

@@ -212,6 +212,86 @@ namespace CIM.ServiceNpk {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetAttivitaByCommaString", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Attivita[] GetAttivitaByCommaString(string ida) {
+            object[] results = this.Invoke("GetAttivitaByCommaString", new object[] {
+                        ida});
+            return ((Attivita[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetAttivitaByCommaString(string ida, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetAttivitaByCommaString", new object[] {
+                        ida}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public Attivita[] EndGetAttivitaByCommaString(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((Attivita[])(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetImpiantoByID", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Impianti GetImpiantoByID(string id_impianto) {
+            object[] results = this.Invoke("GetImpiantoByID", new object[] {
+                        id_impianto});
+            return ((Impianti)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetImpiantoByID(string id_impianto, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetImpiantoByID", new object[] {
+                        id_impianto}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public Impianti EndGetImpiantoByID(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((Impianti)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/GetOperatoriByCommaMatricola", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Operatore[] GetOperatoriByCommaMatricola(string matricola) {
+            object[] results = this.Invoke("GetOperatoriByCommaMatricola", new object[] {
+                        matricola});
+            return ((Operatore[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetOperatoriByCommaMatricola(string matricola, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetOperatoriByCommaMatricola", new object[] {
+                        matricola}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public Operatore[] EndGetOperatoriByCommaMatricola(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((Operatore[])(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/SalvaCommessaAndroid", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SalvaCommessaAndroid(Commesse c) {
+            object[] results = this.Invoke("SalvaCommessaAndroid", new object[] {
+                        c});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSalvaCommessaAndroid(Commesse c, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SalvaCommessaAndroid", new object[] {
+                        c}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndSalvaCommessaAndroid(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://srv.anm.it/npk/SalvaStatoAttivitaCommessa", RequestNamespace="http://srv.anm.it/npk", ResponseNamespace="http://srv.anm.it/npk", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool SalvaStatoAttivitaCommessa(Commesse commessa) {
             object[] results = this.Invoke("SalvaStatoAttivitaCommessa", new object[] {

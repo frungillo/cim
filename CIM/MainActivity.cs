@@ -34,7 +34,7 @@ namespace CIM
 		ProgressDialog dialog;
 		Timer t1;
 		Operatore op;
-		int Tema = 0;
+
 		public Utente ut;
 
 		/*-----------------------*/
@@ -73,7 +73,9 @@ namespace CIM
 
 				btnListaCommesse.Click += BtnListaCommesse_Click;
 				btnCreaCommessa.Click += (sender, e) => {
-					StartActivity(new Intent(this, typeof(frmCreaCommessa)));
+					Intent i = new Intent(this, typeof(frmCreaCommessa));
+					i.PutExtra("coddip",op.Coddip);
+					StartActivity(i);
 				};
 
 
